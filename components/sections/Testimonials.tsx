@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
 import Image from "next/image";
 
@@ -44,9 +44,9 @@ export default function Testimonials() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [, setProgress] = useState(0);
 
-  const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setProgress(0);
@@ -54,7 +54,7 @@ export default function Testimonials() {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
       setTimeout(() => setIsAnimating(false), 50);
     }, 250);
-  };
+  }, [isAnimating]);
 
   const prevTestimonial = () => {
     if (isAnimating) return;
@@ -98,7 +98,7 @@ export default function Testimonials() {
     }, intervalTime);
 
     return () => clearInterval(progressInterval);
-  }, [currentTestimonial, isPaused, isAnimating]);
+  }, [currentTestimonial, isPaused, isAnimating, nextTestimonial]);
 
   const handleManualNavigation = (action: () => void) => {
     setIsPaused(true);

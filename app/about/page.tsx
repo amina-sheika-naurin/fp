@@ -3,42 +3,42 @@ import { Award, Globe, Target } from "lucide-react";
 export default function About() {
   const heritage = [
     {
-      year: "1989",
-      title: "Founded as Hattan Modern",
-      description: "Established with a vision for engineering excellence in the Middle East region."
+      year: "2017",
+      title: "Operations as HATTAN MODERN",
+      description: "Established operations in Oman specialized for fiberglass products, pipeline and tank lamination works."
     },
     {
-      year: "2005",
-      title: "Expansion & AGET Partnership",
-      description: "Strategic partnerships and expanded capabilities in GRP/GRE piping systems."
+      year: "2019",
+      title: "Licensed as Al-Ghail Engineering & Technology LLC",
+      description: "Major projects with LIWA PLASTIC, Sohar GRE/GRP lines, expanding capabilities and market presence."
     },
     {
-      year: "2015",
-      title: "Fibroplast Formation",
-      description: "Rebranded as Fibroplast with integrated civil construction capabilities."
+      year: "2021",
+      title: "Major Milestone - DUQM Projects",
+      description: "Entry into DUQM REFINERY EPC-2 (Samsung/Petrofac) and OMAN OIL DUQM BUNKER projects, plus EPC-1 under TRD."
     },
     {
-      year: "2020",
-      title: "Regional Leadership",
-      description: "Established as a leading provider across Oman, UAE, and the GCC region."
+      year: "2022",
+      title: "20km GRE/GRP Pipeline Achievement",
+      description: "Completed 20 km of GRE/GRP pipeline work, establishing continued success and regional leadership."
     }
   ];
 
   const leadership = [
     {
-      name: "Ali Al-Zadjali",
+      name: "Anas Abdul Latheef",
       position: "Managing Director",
       experience: "15+ years in industrial construction",
       specialization: "Strategic planning and business development"
     },
     {
-      name: "John Patterson",
-      position: "Technical Director",
+      name: "Abdul Latheef",
+      position: "Technical Manager",
       experience: "12+ years in GRP/GRE systems",
       specialization: "Engineering design and project management"
     },
     {
-      name: "Fatima Al-Rashdi",
+      name: "Shiyas Ali",
       position: "Operations Manager",
       experience: "10+ years in civil construction",
       specialization: "Quality assurance and safety management"
