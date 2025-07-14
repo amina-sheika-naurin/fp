@@ -1,5 +1,5 @@
-import { Building, Truck, Layers, Settings } from "lucide-react";
-import ScrollAnimation from "@/components/utils/ScrollAnimation";
+import { Building, Truck, Layers, Settings, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const services = [
   {
@@ -60,16 +60,30 @@ export default function CivilServices() {
             alt="Industrial construction site with concrete foundations and heavy machinery"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-white bg-opacity-85"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80"></div>
         </div>
         <div className="relative container">
-          <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8">
-              Civil Construction
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-4xl mx-auto">
-              Infrastructure and construction services for industrial facilities with integrated civil-piping coordination.
-            </p>
+          <div className="max-w-5xl mx-auto">
+            <nav className="flex items-center gap-2 text-sm mb-8">
+              <Link href="/" className="text-gray-600 hover:text-gray-900 font-light">
+                Home
+              </Link>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+              <Link href="/services" className="text-gray-600 hover:text-gray-900 font-light">
+                Services
+              </Link>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+              <span className="text-gray-900 font-normal">Civil</span>
+            </nav>
+            
+            <div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8">
+                Civil Construction
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-4xl">
+                Infrastructure and construction services for industrial facilities with integrated civil-piping coordination.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -77,8 +91,7 @@ export default function CivilServices() {
       {/* Services Grid */}
       <section className="section bg-white">
         <div className="container">
-          <ScrollAnimation animation="fadeInUp">
-            <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
@@ -106,8 +119,7 @@ export default function CivilServices() {
                 </div>
               );
             })}
-            </div>
-          </ScrollAnimation>
+          </div>
         </div>
       </section>
 

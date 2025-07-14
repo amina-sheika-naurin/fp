@@ -114,7 +114,7 @@ export default function Testimonials() {
         {/* Testimonials Carousel */}
         <div className="max-w-5xl mx-auto mb-24">
           <div 
-            className="relative bg-gray-50 rounded-sm p-12 md:p-16 border border-gray-200"
+            className="relative bg-gray-50 rounded-sm p-12 md:p-16 "
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
@@ -143,22 +143,7 @@ export default function Testimonials() {
                     </p>
                   </div>
                   
-                  <div className="flex gap-4">
-                    <button
-                      onClick={() => handleManualNavigation(prevTestimonial)}
-                      className="group p-4 rounded-full bg-white border-2 border-gray-300 hover:border-gray-900 hover:bg-gray-900 transition-all duration-300"
-                      aria-label="Previous testimonial"
-                    >
-                      <ArrowLeft className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />
-                    </button>
-                    <button
-                      onClick={() => handleManualNavigation(nextTestimonial)}
-                      className="group p-4 rounded-full bg-white border-2 border-gray-300 hover:border-gray-900 hover:bg-gray-900 transition-all duration-300"
-                      aria-label="Next testimonial"
-                    >
-                      <ArrowRight className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />
-                    </button>
-                  </div>
+                  {/*   */}
                 </div>
               </div>
             </div>

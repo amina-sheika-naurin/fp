@@ -1,74 +1,91 @@
-import { Calendar, MapPin, Building } from "lucide-react";
+import { Calendar, MapPin, Building, ChevronRight, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const projects = [
   {
     title: "DUQM Refinery EPC1 & EPC2",
     client: "Samsung/Petrofac & TRD",
-    location: "Duqm, Oman",
+    location: "Duqm Special Economic Zone, Oman",
     year: "2021-2022",
-    scope: "GRP piping + civil infrastructure",
-    description: "Major milestone entry into Duqm Refinery with cooling water line (DN 1000mm to DN 1800mm), fire water line (DN 100mm to DN 500mm), and AOC/OWS lines.",
+    scope: "Complete GRP/GRE piping systems + bonding & lamination",
+    description: "One of the major milestones in AL-GHAIL ENGINEERING & TECHNOLOGY's history. Successfully completed cooling water lines varying from DN 50mm to DN 1800mm, along with fire water, AOC, and OWS lines in GRE/GRP pipes at the Special Economic Zone of Duqm.",
+    image: "/projectimage-1.jpeg",
     highlights: [
-      "Cooling water line PN-14 BAR",
-      "Fire water line PN-18 BAR", 
-      "20 km of GRE/GRP pipeline work",
-      "Lamination and bonding works"
+      "Cooling Water Line (PN-14 BAR) DN 1000mm to DN 1800mm",
+      "Fire Water Line (PN-18 BAR) DN 100mm to DN 500mm",
+      "AOC, OWS and Sanitation Line (PN 10 BAR) DN 80mm to 1000mm",
+      "GRP pipe erection and fabrication",
+      "Hydro testing including gravity and pressure tests",
+      "Valve installation and commissioning",
+      "Bonding and lamination of GRP and GRE pipes"
     ]
   },
   {
-    title: "Oman Oil Duqm Bunker",
+    title: "Oman Oil Duqm Bunker Terminal",
     client: "Oman Oil Company",
     location: "Duqm Port, Oman",
     year: "2021",
-    scope: "End-to-end piping installation + site prep",
-    description: "Complete sewage line installation inside Duqm Port for strategic oil bunkering facility.",
+    scope: "GRE pipe laying and installation for bunker terminal",
+    description: "Strategic participation in the Oman Oil Duqm Bunker Terminal project for laying and installation of GRE pipes, supporting the development of critical oil bunkering infrastructure at Duqm Port.",
+    image: "/projectimage-2.jpeg",
     highlights: [
-      "Sewage line installation",
-      "Site preparation works",
+      "GRE pipe laying and installation",
+      "Bunker terminal infrastructure support", 
       "End-to-end pipeline construction",
-      "Strategic port facility"
+      "Excavation, laying, installation, and backfilling",
+      "Hydro-testing and commissioning",
+      "Strategic port facility development"
     ]
   },
   {
-    title: "LIWA Plastics, Sohar",
+    title: "LIWA Plastics Manufacturing Facility",
     client: "LIWA Plastics",
-    location: "Sohar, Oman",
+    location: "Sohar Industrial Zone, Oman",
     year: "2019-2021",
-    scope: "Foundational concrete and drainage systems",
-    description: "Successful completion of GRE/GRP lines with foundational concrete and comprehensive drainage systems.",
+    scope: "Industrial drainage systems and concrete foundations",
+    description: "Comprehensive infrastructure development for LIWA Plastics manufacturing facility including foundational concrete works and complete drainage systems to support industrial manufacturing operations.",
+    image: "/projectimage-3.jpeg",
     highlights: [
-      "GRE/GRP line installation",
-      "Foundational concrete works",
-      "Drainage system construction",
-      "Industrial facility support"
+      "Industrial-grade concrete foundations",
+      "Manufacturing facility drainage systems",
+      "GRE/GRP pipeline installation",
+      "Site preparation and earthworks",
+      "Industrial wastewater management systems",
+      "Long-term performance assurance"
     ]
   },
   {
-    title: "Sohar 2 IPP Project",
+    title: "Sohar 2 IPP Power Generation",
     client: "Sohar Power Company",
-    location: "Sohar, Oman", 
+    location: "Sohar Industrial Port, Oman", 
     year: "2022",
-    scope: "Power generation facility piping",
-    description: "Critical piping installation and civil works for major power generation facility ensuring zero downtime.",
+    scope: "Power plant piping and civil infrastructure",
+    description: "Critical piping installation and civil infrastructure works for the Sohar 2 Independent Power Plant, ensuring reliable power generation infrastructure with zero-downtime delivery requirements.",
+    image: "/projectimage-4.jpeg",
     highlights: [
-      "Power plant piping systems",
-      "Civil infrastructure works",
-      "Zero downtime delivery",
-      "Complex technical coordination"
+      "Power generation facility piping systems",
+      "High-pressure pipeline installation",
+      "Civil infrastructure coordination",
+      "Zero downtime operational requirements",
+      "Complex technical system integration",
+      "Emergency backup system installation"
     ]
   },
   {
-    title: "Majis Sohar Shutdown",
+    title: "Majis Industrial Shutdown Services",
     client: "Majis Industrial Services",
-    location: "Sohar, Oman", 
+    location: "Sohar Industrial Complex, Oman", 
     year: "2019",
-    scope: "Emergency shutdown services",
-    description: "Time-critical shutdown services and maintenance works ensuring operational continuity for industrial facility.",
+    scope: "Emergency shutdown and maintenance operations",
+    description: "Time-critical shutdown services and comprehensive maintenance works ensuring operational continuity for major industrial facility. Executed emergency repairs and in-situ lamination works within specified time limits.",
+    image: "/projectimage-5.jpeg",
     highlights: [
-      "Emergency shutdown execution",
-      "Maintenance and repair works",
-      "Time-critical completion",
-      "Operational continuity assured"
+      "Emergency shutdown execution and management",
+      "In-situ lamination and repair works",
+      "Maintenance of fiber glass products",
+      "Time-critical project completion",
+      "Operational continuity assurance",
+      "High-quality emergency response services"
     ]
   }
 ];
@@ -85,16 +102,35 @@ export default function Projects() {
             alt="Large industrial construction project with cranes and building infrastructure"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-white bg-opacity-85"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80"></div>
         </div>
         <div className="relative container">
-          <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8">
-              Our Projects
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-4xl mx-auto">
-              Showcasing our expertise across major industrial projects in the region with proven success.
-            </p>
+          <div className="max-w-xl ">
+            {/* Breadcrumbs */}
+            <nav className="flex items-center gap-2 text-sm mb-8">
+              <Link href="/" className="text-gray-600 hover:text-gray-900 font-light">
+                Home
+              </Link>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+              <span className="text-blue-600 font-normal">Projects</span>
+            </nav>
+            
+            {/* Content */}
+            <div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8">
+                Our Projects
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-4xl mb-8">
+                Showcasing our expertise across major industrial projects in the region with proven success.
+              </p>
+              <Link
+                  href="/contact"
+                  className="inline-flex mt-5 items-center justify-center gap-2 bg-gray-900 text-white px-8 py-3 rounded-sm font-light hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                >
+                  Start Your Project
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -102,46 +138,63 @@ export default function Projects() {
       {/* Projects Grid */}
       <section className="section bg-white">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="space-y-16">
             {projects.map((project, index) => (
-              <div key={index} className="bg-gray-50 rounded-sm p-8 border border-gray-200 hover:shadow-sm transition-shadow">
-                <div className="flex flex-wrap gap-4 mb-6 text-sm">
-                  <div className="flex items-center gap-2 text-gray-500">
-                    <Building className="w-4 h-4" />
-                    <span className="font-light">{project.client}</span>
+              <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+                {/* Project Info */}
+                <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                  <div className="flex flex-wrap gap-4 text-sm">
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Building className="w-4 h-4" />
+                      <span className="font-light">{project.client}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <MapPin className="w-4 h-4" />
+                      <span className="font-light">{project.location}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Calendar className="w-4 h-4" />
+                      <span className="font-light">{project.year}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-500">
-                    <MapPin className="w-4 h-4" />
-                    <span className="font-light">{project.location}</span>
+
+                  <div>
+                    <h3 className="text-3xl lg:text-4xl font-light text-gray-900 mb-4">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-lg text-blue-600 font-light mb-4">
+                      {project.scope}
+                    </p>
+
+                    <p className="text-gray-600 mb-8 font-light leading-relaxed text-lg">
+                      {project.description}
+                    </p>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-500">
-                    <Calendar className="w-4 h-4" />
-                    <span className="font-light">{project.year}</span>
+
+                  <div className="bg-gray-50 p-6 border-l-4 border-blue-600">
+                    <h4 className="text-base font-medium text-gray-900 mb-4">Key Highlights</h4>
+                    <ul className="grid sm:grid-cols-2 gap-3">
+                      {project.highlights.map((highlight, highlightIndex) => (
+                        <li key={highlightIndex} className="flex items-start gap-3 text-sm text-gray-700">
+                          <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1.5 flex-shrink-0" />
+                          <span className="font-light">{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-normal text-gray-900 mb-3">
-                  {project.title}
-                </h3>
-
-                <p className="text-blue-600 font-light mb-4 text-base">
-                  {project.scope}
-                </p>
-
-                <p className="text-gray-600 mb-6 font-light leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div>
-                  <h4 className="text-sm font-normal text-gray-900 mb-3">Key Highlights</h4>
-                  <ul className="space-y-2">
-                    {project.highlights.map((highlight, highlightIndex) => (
-                      <li key={highlightIndex} className="flex items-start gap-2 text-sm text-gray-600 font-light">
-                        <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
+                {/* Project Visual */}
+                <div className={`relative h-96 overflow-hidden rounded-sm ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                  <img 
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/20"></div>
+                  
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-purple-600"></div>
                 </div>
               </div>
             ))}
@@ -150,28 +203,35 @@ export default function Projects() {
       </section>
 
       {/* Success Stats */}
-      <section className="section bg-gray-50">
+      <section className="section">
         <div className="container">
-          <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-light mb-6 text-gray-900">
-              Project Success
-            </h2>
-            <p className="text-lg text-gray-600 font-light leading-relaxed">
-              Delivering high-value projects on time without compromising quality.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            {[
-              { stat: "100%", label: "Success Rate in Executed Joints" },
-              { stat: "20+ km", label: "GRE/GRP Pipeline Completed" },
-              { stat: "35+ Years", label: "Combined Team Experience" }
-            ].map((item, index) => (
-              <div key={index} className="text-center bg-white rounded-sm p-8 border border-gray-200">
-                <div className="text-3xl font-light text-gray-900 mb-2">{item.stat}</div>
-                <p className="text-sm font-light text-gray-600">{item.label}</p>
-              </div>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left side - Heading */}
+            <div>
+              <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-6">
+                Project Excellence & Achievements
+              </h2>
+              <p className="text-lg text-gray-600 font-light leading-relaxed">
+                Delivering complex industrial projects with precision engineering and uncompromising quality standards across Oman's major industrial developments.
+              </p>
+            </div>
+            
+            {/* Right side - Stats */}
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { stat: "DN 50-1800mm", label: "Pipeline Diameter Range Capability" },
+                { stat: "PN 10-18 BAR", label: "Pressure Rating Expertise" },
+                { stat: "100%", label: "Hydro Testing Success Rate" },
+                { stat: "35+ Years", label: "Combined Engineering Experience" }
+              ].map((item, index) => (
+                <div key={index} className="text-center p-6 transition-colors duration-300">
+                  <div className="text-2xl lg:text-3xl font-light mb-2 bg-gradient-to-r font-semibold from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    {item.stat}
+                  </div>
+                  <p className="text-sm font-light text-gray-600 leading-tight">{item.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

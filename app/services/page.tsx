@@ -1,4 +1,5 @@
-import ScrollAnimation from "@/components/utils/ScrollAnimation";
+import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Services() {
   return (
@@ -12,16 +13,26 @@ export default function Services() {
             alt="Modern industrial facility with engineering equipment and construction work"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-white bg-opacity-85"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80"></div>
         </div>
         <div className="relative container">
-          <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8">
-              Our Services
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-4xl mx-auto">
-              Comprehensive piping and civil construction solutions.
-            </p>
+          <div className="max-w-5xl mx-auto">
+            <nav className="flex items-center gap-2 text-sm mb-8">
+              <Link href="/" className="text-gray-600 hover:text-gray-900 font-light">
+                Home
+              </Link>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+              <span className="text-gray-900 font-normal">Services</span>
+            </nav>
+            
+            <div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8">
+                Our Services
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-4xl">
+                Comprehensive piping and civil construction solutions.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -29,17 +40,15 @@ export default function Services() {
       {/* Coming Soon */}
       <section className="section bg-white">
         <div className="container">
-          <ScrollAnimation animation="fadeInUp">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-light mb-4 text-gray-900">
-                Coming Soon
-              </h2>
-              <p className="text-lg text-gray-600 font-light leading-relaxed">
-                Detailed service pages are under development. 
-                For immediate service inquiries, please contact us directly.
-              </p>
-            </div>
-          </ScrollAnimation>
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-light mb-4 text-gray-900">
+              Coming Soon
+            </h2>
+            <p className="text-lg text-gray-600 font-light leading-relaxed">
+              Detailed service pages are under development. 
+              For immediate service inquiries, please contact us directly.
+            </p>
+          </div>
         </div>
       </section>
     </div>

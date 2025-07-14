@@ -1,3 +1,6 @@
+import { ChevronRight } from "lucide-react";
+import Link from "next/link";
+
 export default function MaintenanceServices() {
   return (
     <div className="min-h-screen">
@@ -10,16 +13,32 @@ export default function MaintenanceServices() {
             alt="Industrial maintenance workers performing repairs on piping systems"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-white bg-opacity-85"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80"></div>
         </div>
         <div className="relative container">
-          <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8">
-              Maintenance & Repairs
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-4xl mx-auto">
-              Professional maintenance and emergency repair services for piping systems.
-            </p>
+          <div className="max-w-5xl mx-auto">
+            {/* Breadcrumbs */}
+            <nav className="flex items-center gap-2 text-sm mb-8">
+              <Link href="/" className="text-gray-600 hover:text-gray-900 font-light">
+                Home
+              </Link>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+              <Link href="/services" className="text-gray-600 hover:text-gray-900 font-light">
+                Services
+              </Link>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+              <span className="text-gray-900 font-normal">Maintenance</span>
+            </nav>
+            
+            {/* Content */}
+            <div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8">
+                Maintenance & Repairs
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-4xl">
+                Professional maintenance and emergency repair services for piping systems.
+              </p>
+            </div>
           </div>
         </div>
       </section>
