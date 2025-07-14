@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, MessageCircle } from "lucide-react";
 import { navigationItems, NavItem } from "@/lib/types/navigation";
 
@@ -10,21 +11,53 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
+  const navRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  // Update underline position when pathname changes
+  useEffect(() => {
+    if (!navRef.current) return;
+
+    const activeLink = navRef.current.querySelector(`[data-active="true"]`) as HTMLElement;
+    if (activeLink) {
+      const navRect = navRef.current.getBoundingClientRect();
+      const linkRect = activeLink.getBoundingClientRect();
+      setUnderlineStyle({
+        left: linkRect.left - navRect.left,
+        width: linkRect.width,
+      });
+    } else {
+      setUnderlineStyle({ left: 0, width: 0 });
+    }
+  }, [pathname]);
 
   const renderNavItem = (item: NavItem, index: number) => {
     const hasChildren = item.children && item.children.length > 0;
+    const isActive = item.href === pathname;
 
     if (!hasChildren && item.href) {
       return (
         <Link
           key={index}
           href={item.href}
-          className="text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors"
+          data-active={isActive}
+          className={`px-4 py-2 text-sm font-medium transition-colors ${
+            isActive 
+              ? 'text-blue-600' 
+              : 'text-gray-700 hover:text-blue-600'
+          }`}
         >
           {item.title}
         </Link>
       );
     }
+
+    // Check if any child page is active
+    const isChildActive = hasChildren && item.children?.some(child => 
+      child.href === pathname || 
+      child.children?.some(subChild => subChild.href === pathname)
+    );
 
     return (
       <div
@@ -34,7 +67,12 @@ export default function Header() {
         onMouseLeave={() => setActiveDropdown(null)}
       >
         <button
-          className="flex items-center gap-1 text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors"
+          data-active={isChildActive}
+          className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
+            isChildActive 
+              ? 'text-blue-600' 
+              : 'text-gray-700 hover:text-blue-600'
+          }`}
           aria-expanded={activeDropdown === item.title}
         >
           {item.title}
@@ -107,8 +145,17 @@ export default function Header() {
           />
         </Link>
 
-        <div className="hidden lg:flex items-center space-x-1">
+        <div className="hidden lg:flex items-center space-x-1 relative" ref={navRef}>
           {navigationItems.map((item, index) => renderNavItem(item, index))}
+          {/* Animated underline */}
+          <div
+            className="absolute bottom-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out"
+            style={{
+              left: `${underlineStyle.left}px`,
+              width: `${underlineStyle.width}px`,
+              opacity: underlineStyle.width > 0 ? 1 : 0,
+            }}
+          />
         </div>
 
         <div className="hidden lg:flex items-center space-x-4">

@@ -94,7 +94,7 @@ export default function Projects() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gray-50 py-32">
+      <section className="relative overflow-hidden bg-gray-50 py-10 min-h-screen">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
@@ -116,8 +116,8 @@ export default function Projects() {
             </nav>
             
             {/* Content */}
-            <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8">
+            <div className="mt-40">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8 ">
                 Our Projects
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-4xl mb-8">
@@ -202,39 +202,6 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Success Stats */}
-      <section className="section">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Heading */}
-            <div>
-              <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-6">
-                Project Excellence & Achievements
-              </h2>
-              <p className="text-lg text-gray-600 font-light leading-relaxed">
-                Delivering complex industrial projects with precision engineering and uncompromising quality standards across Oman's major industrial developments.
-              </p>
-            </div>
-            
-            {/* Right side - Stats */}
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { stat: "DN 50-1800mm", label: "Pipeline Diameter Range Capability" },
-                { stat: "PN 10-18 BAR", label: "Pressure Rating Expertise" },
-                { stat: "100%", label: "Hydro Testing Success Rate" },
-                { stat: "35+ Years", label: "Combined Engineering Experience" }
-              ].map((item, index) => (
-                <div key={index} className="text-center p-6 transition-colors duration-300">
-                  <div className="text-2xl lg:text-3xl font-light mb-2 bg-gradient-to-r font-semibold from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    {item.stat}
-                  </div>
-                  <p className="text-sm font-light text-gray-600 leading-tight">{item.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

@@ -116,14 +116,6 @@ export default function Footer() {
             <p className="text-sm font-light">
               © {currentYear} Fibroplast. All rights reserved.
             </p>
-            <div className="flex gap-8 text-sm">
-              <Link href="/privacy" className="font-light hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="font-light hover:text-white transition-colors">
-                Terms & Conditions
-              </Link>
-            </div>
           </div>
         </div>
       </div>
