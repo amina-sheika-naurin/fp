@@ -55,7 +55,7 @@ export default function Capabilities() {
               Industrial Engineering Excellence
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              35+ years of proven expertise in GRP, GRE & GRV pipeline systems across Oman's major industrial projects.
+              35+ years of proven expertise in GRP, GRE & GRV pipeline systems across Oman&apos;s major industrial projects.
             </p>
             <div className="w-16 h-0.5 bg-blue-600"></div>
           </div>
@@ -162,7 +162,7 @@ export default function Capabilities() {
           <div className="max-w-3xl">
             <h3 className="text-4xl font-light mb-8 text-gray-900">Ready to start your project?</h3>
             <p className="text-xl text-gray-600 mb-12 leading-relaxed">
-              Let's discuss how our engineering expertise can deliver value for your industrial infrastructure needs.
+              Let&apos;s discuss how our engineering expertise can deliver value for your industrial infrastructure needs.
             </p>
             <Link
               href="/contact"

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 import Image from "next/image";
 
 const testimonials = [
@@ -56,15 +56,6 @@ export default function Testimonials() {
     }, 250);
   }, [isAnimating]);
 
-  const prevTestimonial = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setProgress(0);
-    setTimeout(() => {
-      setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-      setTimeout(() => setIsAnimating(false), 50);
-    }, 250);
-  };
 
   const goToTestimonial = (index: number) => {
     if (isAnimating || index === currentTestimonial) return;
@@ -100,12 +91,6 @@ export default function Testimonials() {
     return () => clearInterval(progressInterval);
   }, [currentTestimonial, isPaused, isAnimating, nextTestimonial]);
 
-  const handleManualNavigation = (action: () => void) => {
-    setIsPaused(true);
-    action();
-    // Resume auto-swipe after 10 seconds of manual interaction
-    setTimeout(() => setIsPaused(false), 10000);
-  };
 
   return (
     <section className="section bg-gray-50">

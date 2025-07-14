@@ -84,7 +84,7 @@ export default function Contact() {
         <div className="container">
           <div className="max-w-4xl">
             <h2 className="text-5xl md:text-6xl font-light mb-8 text-gray-900 leading-tight">
-              Let's discuss your project
+              Let&apos;s discuss your project
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
               Ready to start your next industrial project? Our expert team is here to provide consultation and develop solutions tailored to your specific requirements.
@@ -210,7 +210,7 @@ export default function Contact() {
                       Send Inquiry
                     </button>
                     <p className="text-sm text-gray-500">
-                      We'll respond within 24 hours
+                      We&apos;ll respond within 24 hours
                     </p>
                   </div>
                 </form>
