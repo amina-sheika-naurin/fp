@@ -182,10 +182,13 @@ export default function Testimonials() {
 
         {/* Client Logos */}
         <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-8 items-start">
-          <h3 className="text-xl font-semibold font-light text-gray-900">
-            Trusted clients
-          </h3>
-          <div className="flex flex-wrap gap-4">
+            <div >
+            <p className="text-2xl font-light text-gray-900">Trusted clients</p>
+            <p className="text-gray-600 text-base mt-2">
+              We are proud to have collaborated with clients who trust us for their critical projects.
+            </p>
+            </div>
+            <div className="flex flex-wrap gap-4 self-end">
             {clients.map((client, index) => (
               <div
                 key={index}

@@ -125,14 +125,6 @@ export default function FeaturedProjects() {
                   <p className="text-gray-600 mb-8 font-light leading-relaxed">
                     {project.description}
                   </p>
-
-                  <Link
-                    href={`/projects/${project.id}`}
-                    className="inline-flex items-center gap-2 text-blue-600 font-light hover:gap-3 transition-all text-base"
-                  >
-                    View Project Details
-                    <span className="text-lg">→</span>
-                  </Link>
                 </div>
               </div>
             </ScrollAnimation>
@@ -182,14 +174,6 @@ export default function FeaturedProjects() {
                     <p className="text-gray-600 mb-8 font-light leading-relaxed">
                       {project.description}
                     </p>
-
-                    <Link
-                      href={`/projects/${project.id}`}
-                      className="inline-flex items-center gap-2 text-blue-600 font-light hover:gap-3 transition-all text-base"
-                    >
-                      View Project Details
-                      <span className="text-lg">→</span>
-                    </Link>
                   </div>
                 </div>
               </ScrollAnimation>
