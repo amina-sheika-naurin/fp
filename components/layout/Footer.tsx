@@ -13,10 +13,10 @@ export default function Footer() {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <Image 
-                src="/loho.jpeg" 
+                src="/logo.svg" 
                 alt="FP Logo" 
-                width={32} 
-                height={32} 
+                width={60} 
+                height={60} 
                 className="object-contain"
               />
             </div>

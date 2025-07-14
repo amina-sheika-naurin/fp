@@ -192,7 +192,7 @@ export default function Testimonials() {
             {clients.map((client, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center bg-white border border-gray-200 rounded-sm p-6 hover:border-gray-300 transition-colors duration-300 h-24 min-w-[140px]"
+                className="flex items-center justify-center bg-white border border-gray-200 rounded-sm p-6 hover:border-gray-300 transition-colors duration-300 h-24 min-w-full md:min-w-[140px]"
               >
                 <Image
                   src={client.logo}

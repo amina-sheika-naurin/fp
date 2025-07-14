@@ -99,11 +99,11 @@ export default function Header() {
       <nav className="container flex h-14 md:h-12 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <Image 
-            src="/loho.jpeg" 
+            src="/logo.svg" 
             alt="FP Logo" 
-            width={32} 
-            height={32} 
-            className="object-contain md:w-10 md:h-10"
+            width={60} 
+            height={60} 
+            className="object-contain md:w-16 md:h-16"
           />
         </Link>
 
