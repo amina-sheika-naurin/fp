@@ -1,4 +1,5 @@
 import { Wrench, Clock, Package } from "lucide-react";
+import ScrollAnimation from "@/components/utils/ScrollAnimation";
 
 const services = [
   {
@@ -56,7 +57,8 @@ export default function PipingServices() {
       {/* Services Grid */}
       <section className="section bg-white">
         <div className="container">
-          <div className="grid lg:grid-cols-3 gap-8">
+          <ScrollAnimation animation="fadeInUp">
+            <div className="grid lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
@@ -84,7 +86,8 @@ export default function PipingServices() {
                 </div>
               );
             })}
-          </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 

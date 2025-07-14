@@ -44,12 +44,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services/maintenance" className="text-sm font-light hover:text-white transition-colors">
+                <Link href="/services/piping/maintenance" className="text-sm font-light hover:text-white transition-colors">
                   Maintenance & Repairs
                 </Link>
               </li>
               <li>
-                <Link href="/services/supply" className="text-sm font-light hover:text-white transition-colors">
+                <Link href="/services/piping/supply" className="text-sm font-light hover:text-white transition-colors">
                   Trading & Supply
                 </Link>
               </li>

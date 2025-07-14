@@ -44,17 +44,31 @@ const projects = [
     ]
   },
   {
-    title: "Sohar 2 IPP & Majis Sohar Shutdown",
+    title: "Sohar 2 IPP Project",
     client: "Sohar Power Company",
     location: "Sohar, Oman", 
-    year: "2019-2022",
-    scope: "Integrated shutdown and civil works",
-    description: "Critical shutdown services and integrated civil works for major power generation facility.",
+    year: "2022",
+    scope: "Power generation facility piping",
+    description: "Critical piping installation and civil works for major power generation facility ensuring zero downtime.",
     highlights: [
-      "Emergency shutdown services",
-      "Integrated civil works",
-      "Power generation facility",
-      "Time-critical completion"
+      "Power plant piping systems",
+      "Civil infrastructure works",
+      "Zero downtime delivery",
+      "Complex technical coordination"
+    ]
+  },
+  {
+    title: "Majis Sohar Shutdown",
+    client: "Majis Industrial Services",
+    location: "Sohar, Oman", 
+    year: "2019",
+    scope: "Emergency shutdown services",
+    description: "Time-critical shutdown services and maintenance works ensuring operational continuity for industrial facility.",
+    highlights: [
+      "Emergency shutdown execution",
+      "Maintenance and repair works",
+      "Time-critical completion",
+      "Operational continuity assured"
     ]
   }
 ];

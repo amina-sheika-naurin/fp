@@ -1,3 +1,5 @@
+import ScrollAnimation from "@/components/utils/ScrollAnimation";
+
 export default function Services() {
   return (
     <div className="min-h-screen">
@@ -18,15 +20,17 @@ export default function Services() {
       {/* Coming Soon */}
       <section className="section bg-white">
         <div className="container">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-light mb-4 text-gray-900">
-              Coming Soon
-            </h2>
-            <p className="text-lg text-gray-600 font-light leading-relaxed">
-              Detailed service pages are under development. 
-              For immediate service inquiries, please contact us directly.
-            </p>
-          </div>
+          <ScrollAnimation animation="fadeInUp">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-light mb-4 text-gray-900">
+                Coming Soon
+              </h2>
+              <p className="text-lg text-gray-600 font-light leading-relaxed">
+                Detailed service pages are under development. 
+                For immediate service inquiries, please contact us directly.
+              </p>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
     </div>

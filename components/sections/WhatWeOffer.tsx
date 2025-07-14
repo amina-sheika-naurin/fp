@@ -1,163 +1,213 @@
+"use client";
+
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import ScrollAnimation from "@/components/utils/ScrollAnimation";
 
-const pipingServices = [
+const services = [
   {
-    graphic: "installation",
-    title: "GRP / GRE / GRVE Pipe Installation",
-    description: "Seamless installation for firewater, cooling, raw-water systems—diameters from 50 mm to 2,800 mm.",
-    href: "/services/piping/installation"
+    title: "Piping Solutions",
+    description: "Comprehensive solutions for industrial piping systems, tailored to your project needs.",
+    href: "/services/piping",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-20 h-20">
+        {/* Main pipeline */}
+        <rect x="6" y="20" width="36" height="4" fill="none" stroke="currentColor" strokeWidth="0.7" rx="2" />
+        <rect x="6" y="26" width="36" height="4" fill="none" stroke="currentColor" strokeWidth="0.7" rx="2" />
+        {/* Connecting joints */}
+        <circle cx="12" cy="22" r="3" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <circle cx="36" cy="28" r="3" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        {/* Flow indicators */}
+        <path d="M16 22l4-2 4 2M28 28l4-2 4 2" stroke="currentColor" strokeWidth="0.7" fill="none" />
+      </svg>
+    )
   },
   {
-    graphic: "maintenance",
-    title: "Shutdown, Maintenance & Emergency Repairs",
-    description: "In-situ lamination, bonding, valve replacement, onsite testing for zero-downtime performance.",
-    href: "/services/piping/maintenance"
+    title: "GRP Pipe Installation",
+    description: "Expert installation of GRP/GRE/GRVE pipes from 50mm to 2800mm diameter for industrial systems.",
+    href: "/services/piping/installation",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-20 h-20">
+        {/* Installation tools */}
+        <path d="M8 12l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Pipe sections being installed */}
+        <rect x="16" y="20" width="24" height="4" fill="none" stroke="currentColor" strokeWidth="0.7" rx="2" />
+        <rect x="16" y="26" width="24" height="4" fill="none" stroke="currentColor" strokeWidth="0.7" rx="2" />
+        {/* Installation points */}
+        <circle cx="18" cy="22" r="1.5" fill="currentColor" />
+        <circle cx="38" cy="28" r="1.5" fill="currentColor" />
+        {/* Worker tool indicator */}
+        <path d="M10 36l4-4 4 4" stroke="currentColor" strokeWidth="0.7" fill="none" />
+      </svg>
+    )
   },
   {
-    graphic: "supply",
+    title: "Shutdown & Maintenance",
+    description: "Emergency repairs, in-situ lamination, and maintenance services ensuring zero-downtime performance.",
+    href: "/services/piping/maintenance",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-20 h-20">
+        {/* Wrench tool */}
+        <path d="M14 18l-4-4a3 3 0 0 1 4-4l4 4" fill="none" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M14 18l16 16" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" />
+        {/* Pipeline being repaired */}
+        <rect x="20" y="28" width="20" height="3" fill="none" stroke="currentColor" strokeWidth="0.7" rx="1.5" />
+        {/* Repair indicator */}
+        <circle cx="32" cy="29.5" r="4" fill="none" stroke="currentColor" strokeWidth="0.7" strokeDasharray="2,2" />
+        {/* Emergency indicator */}
+        <path d="M36 16l2-4 2 4-2 1z" fill="currentColor" />
+      </svg>
+    )
+  },
+  {
     title: "Trading & Supply",
-    description: "End-to-end procurement: pipes, fittings, tanks, basins, ladders, manholes, trench covers.",
-    href: "/services/piping/supply"
-  }
-];
-
-const civilServices = [
-  {
-    graphic: "foundations",
-    title: "Foundations & Concrete Works",
-    description: "Robust building bases, slabs, manholes, chambers, drainage structures.",
-    href: "/services/civil/foundations"
+    description: "End-to-end procurement of pipes, fittings, tanks, and specialized fiberglass products.",
+    href: "/services/piping/supply",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-20 h-20">
+        {/* Warehouse/storage */}
+        <rect x="8" y="16" width="32" height="20" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <path d="M8 16l16-8 16 8" fill="none" stroke="currentColor" strokeWidth="0.7" strokeLinejoin="round" />
+        {/* Supply boxes */}
+        <rect x="12" y="24" width="6" height="6" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <rect x="21" y="24" width="6" height="6" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <rect x="30" y="24" width="6" height="6" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        {/* Delivery truck */}
+        <rect x="14" y="38" width="12" height="4" fill="none" stroke="currentColor" strokeWidth="0.7" rx="1" />
+        <circle cx="18" cy="42" r="2" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <circle cx="22" cy="42" r="2" fill="none" stroke="currentColor" strokeWidth="0.7" />
+      </svg>
+    )
   },
   {
-    graphic: "excavation",
+    title: "Civil Construction",
+    description: "Comprehensive solutions for industrial and civil construction projects, ensuring quality and efficiency.",
+    href: "/services/civil",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-20 h-20">
+        {/* Building structure */}
+        <rect x="12" y="12" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        {/* Windows */}
+        <rect x="16" y="18" width="4" height="4" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <rect x="22" y="18" width="4" height="4" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <rect x="28" y="18" width="4" height="4" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <rect x="16" y="26" width="4" height="4" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <rect x="28" y="26" width="4" height="4" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        {/* Construction crane */}
+        <line x1="38" y1="8" x2="38" y2="24" stroke="currentColor" strokeWidth="0.7" />
+        <line x1="32" y1="12" x2="44" y2="12" stroke="currentColor" strokeWidth="0.7" />
+        <path d="M38 24l-2 2 2 2 2-2z" fill="currentColor" />
+      </svg>
+    )
+  },
+  {
+    title: "Foundations & Concrete",
+    description: "Robust concrete foundations, structural slabs, and specialized construction works.",
+    href: "/services/civil/foundations",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-20 h-20">
+        {/* Foundation layers */}
+        <rect x="8" y="32" width="32" height="6" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <rect x="12" y="26" width="24" height="6" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <rect x="16" y="20" width="16" height="6" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <rect x="20" y="14" width="8" height="6" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        {/* Ground line */}
+        <line x1="4" y1="38" x2="44" y2="38" stroke="currentColor" strokeWidth="0.7" />
+        {/* Reinforcement bars */}
+        <line x1="10" y1="30" x2="10" y2="34" stroke="currentColor" strokeWidth="0.7" />
+        <line x1="24" y1="18" x2="24" y2="34" stroke="currentColor" strokeWidth="0.7" />
+        <line x1="38" y1="30" x2="38" y2="34" stroke="currentColor" strokeWidth="0.7" />
+        {/* Concrete texture dots */}
+        <circle cx="14" cy="35" r="0.5" fill="currentColor" />
+        <circle cx="22" cy="29" r="0.5" fill="currentColor" />
+        <circle cx="30" cy="35" r="0.5" fill="currentColor" />
+      </svg>
+    )
+  },
+  {
     title: "Excavation & Earthworks",
-    description: "Precision site prep, backfilling, trenching, grading.",
-    href: "/services/civil/excavation"
+    description: "Precision site preparation, trenching, backfilling, and earthwork optimization.",
+    href: "/services/civil/excavation",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-20 h-20">
+        {/* Excavator */}
+        <rect x="8" y="32" width="12" height="6" fill="none" stroke="currentColor" strokeWidth="0.7" rx="2" />
+        <circle cx="12" cy="38" r="3" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <circle cx="16" cy="38" r="3" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        {/* Excavator arm */}
+        <path d="M20 32l8-8 8 4" fill="none" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Bucket */}
+        <path d="M34 26l4-2 2 4-4 2z" fill="none" stroke="currentColor" strokeWidth="0.7" strokeLinejoin="round" />
+        {/* Excavated earth */}
+        <path d="M24 36c0-4 4-8 12-6s8 8 4 10c-4 2-16-4-16-4" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        {/* Ground particles */}
+        <circle cx="30" cy="34" r="0.5" fill="currentColor" />
+        <circle cx="34" cy="36" r="0.5" fill="currentColor" />
+        <circle cx="28" cy="38" r="0.5" fill="currentColor" />
+      </svg>
+    )
   },
   {
-    graphic: "infrastructure",
     title: "Infrastructure Services",
-    description: "Drainage systems, sewerage lines, manhole construction, road access prep.",
-    href: "/services/civil/infrastructure"
-  },
-  {
-    graphic: "integrated",
-    title: "Integrated Civil-Piping Support",
-    description: "Full cross-functional coordination to streamline large-scale industrial projects.",
-    href: "/services/civil/integrated"
+    description: "Drainage systems, sewerage lines, and comprehensive infrastructure development.",
+    href: "/services/civil/infrastructure",
+    icon: (
+      <svg viewBox="0 0 48 48" className="w-20 h-20">
+        {/* Main infrastructure grid */}
+        <line x1="12" y1="24" x2="36" y2="24" stroke="currentColor" strokeWidth="0.7" />
+        <line x1="24" y1="12" x2="24" y2="36" stroke="currentColor" strokeWidth="0.7" />
+        {/* Junction points */}
+        <circle cx="24" cy="24" r="4" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <circle cx="12" cy="24" r="2" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <circle cx="36" cy="24" r="2" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <circle cx="24" cy="12" r="2" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        <circle cx="24" cy="36" r="2" fill="none" stroke="currentColor" strokeWidth="0.7" />
+        {/* Drainage lines */}
+        <path d="M16 28l-4 4M32 28l4 4M24 16l-4-4M24 32l4 4" stroke="currentColor" strokeWidth="0.7" />
+        {/* Water flow indicators */}
+        <path d="M18 22l2-1 2 1M26 22l2-1 2 1" stroke="currentColor" strokeWidth="0.7" fill="none" />
+      </svg>
+    )
   }
 ];
 
 interface ServiceCardProps {
-  graphic: string;
   title: string;
   description: string;
+  icon: React.ReactNode;
   href: string;
+  featured?: boolean;
 }
 
-const ServiceGraphic = ({ type }: { type: string }) => {
-  switch (type) {
-    case "installation":
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <defs>
-            <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
-              <stop offset="100%" stopColor="#1d4ed8" stopOpacity="0.4" />
-            </linearGradient>
-          </defs>
-          <rect x="10" y="35" width="80" height="15" fill="url(#pipeGrad)" rx="7.5" />
-          <rect x="10" y="50" width="80" height="15" fill="url(#pipeGrad)" rx="7.5" />
-          <circle cx="25" cy="50" r="12" fill="#3b82f6" opacity="0.3" />
-          <circle cx="75" cy="50" r="12" fill="#3b82f6" opacity="0.3" />
-          <path d="M25 30 L25 70 M75 30 L75 70" stroke="#1d4ed8" strokeWidth="2" opacity="0.5" />
-        </svg>
-      );
-    case "maintenance":
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <rect x="20" y="40" width="60" height="20" fill="#e5e7eb" rx="3" />
-          <rect x="20" y="40" width="30" height="20" fill="#3b82f6" opacity="0.3" rx="3" />
-          <circle cx="65" cy="50" r="15" fill="none" stroke="#1d4ed8" strokeWidth="2" opacity="0.4" />
-          <path d="M58 50 L65 57 L72 43" stroke="#10b981" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      );
-    case "supply":
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <rect x="15" y="60" width="30" height="25" fill="#3b82f6" opacity="0.2" rx="2" />
-          <rect x="35" y="45" width="30" height="40" fill="#1d4ed8" opacity="0.25" rx="2" />
-          <rect x="55" y="55" width="30" height="30" fill="#3b82f6" opacity="0.2" rx="2" />
-          <path d="M30 40 L50 25 L70 40" stroke="#1d4ed8" strokeWidth="2" fill="none" opacity="0.5" />
-        </svg>
-      );
-    case "foundations":
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <rect x="20" y="60" width="60" height="25" fill="#6b7280" opacity="0.3" rx="2" />
-          <rect x="25" y="45" width="50" height="15" fill="#6b7280" opacity="0.4" rx="2" />
-          <rect x="30" y="30" width="40" height="15" fill="#6b7280" opacity="0.5" rx="2" />
-          <line x1="10" y1="85" x2="90" y2="85" stroke="#374151" strokeWidth="2" />
-        </svg>
-      );
-    case "excavation":
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <path d="M20 70 Q50 50, 80 70" fill="#fbbf24" opacity="0.3" />
-          <path d="M20 70 L80 70 L80 85 L20 85 Z" fill="#92400e" opacity="0.3" />
-          <path d="M35 50 L40 45 L45 50 L40 70" stroke="#f59e0b" strokeWidth="3" fill="none" strokeLinecap="round" />
-          <circle cx="65" cy="60" r="3" fill="#92400e" />
-          <circle cx="55" cy="65" r="2" fill="#92400e" />
-        </svg>
-      );
-    case "infrastructure":
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <line x1="20" y1="50" x2="80" y2="50" stroke="#6b7280" strokeWidth="4" />
-          <line x1="50" y1="20" x2="50" y2="80" stroke="#6b7280" strokeWidth="4" />
-          <circle cx="50" cy="50" r="8" fill="#3b82f6" opacity="0.5" />
-          <circle cx="20" cy="50" r="5" fill="#3b82f6" opacity="0.4" />
-          <circle cx="80" cy="50" r="5" fill="#3b82f6" opacity="0.4" />
-          <circle cx="50" cy="20" r="5" fill="#3b82f6" opacity="0.4" />
-          <circle cx="50" cy="80" r="5" fill="#3b82f6" opacity="0.4" />
-        </svg>
-      );
-    case "integrated":
-      return (
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <rect x="15" y="25" width="30" height="20" fill="#3b82f6" opacity="0.3" rx="2" />
-          <rect x="55" y="25" width="30" height="20" fill="#6b7280" opacity="0.3" rx="2" />
-          <rect x="35" y="55" width="30" height="20" fill="#10b981" opacity="0.3" rx="2" />
-          <line x1="30" y1="45" x2="50" y2="55" stroke="#374151" strokeWidth="2" />
-          <line x1="70" y1="45" x2="50" y2="55" stroke="#374151" strokeWidth="2" />
-          <circle cx="50" cy="65" r="3" fill="#1d4ed8" />
-        </svg>
-      );
-    default:
-      return null;
-  }
-};
-
-function ServiceCard({ graphic, title, description, href }: ServiceCardProps) {
+function ServiceCard({ title, description, icon, href }: ServiceCardProps) {
   return (
     <Link 
       href={href}
-      className="group relative bg-gray-50 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 p-8 border border-gray-200 hover:border-gray-300"
+      className="group relative bg-white hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 transition-all duration-500 p-4 block h-full min-h-[200px] overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent rounded-sm opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="relative space-y-4">
-        <div className="w-20 h-20 mb-4">
-          <ServiceGraphic type={graphic} />
+      <div className="relative flex flex-col justify-between h-full">
+        {/* Title - Big and centered */}
+        <div className="relative">
+          {/* Title - Visible by default, hidden on hover */}
+          <h3 className="text-xl font-light text-gray-900 group-hover:text-white group-hover:opacity-0 transition-all duration-500 leading-tight">
+            {title}
+          </h3>
+          
+          {/* Description - Hidden by default, visible on hover in same position */}
+          <p className="absolute inset-0 text-base text-white font-light leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+            {description}
+          </p>
         </div>
-        <h3 className="text-lg font-normal text-gray-900 group-hover:text-blue-700 transition-colors leading-tight">
-          {title}
-        </h3>
-        <p className="text-gray-600 text-base leading-relaxed font-light">
-          {description}
-        </p>
-        <div className="text-blue-600 text-sm font-normal group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-          <span>Learn more</span>
-          <span className="text-lg">→</span>
+        
+        {/* Bottom row: Icon and Arrow parallel */}
+        <div className="flex items-end justify-between mt-6">
+          <div className="w-20 h-20 text-blue-600 group-hover:text-white transition-colors duration-500">
+            <div className="w-full h-full flex items-center justify-center">
+              {icon}
+            </div>
+          </div>
+        
+          <ArrowRight className="w-6 h-6 mb-4 text-blue-600 group-hover:text-white group-hover:translate-x-1 transition-all duration-500" />
         </div>
       </div>
     </Link>
@@ -168,39 +218,114 @@ export default function WhatWeOffer() {
   return (
     <section className="section bg-white">
       <div className="container">
-        <div className="text-center max-w-4xl mx-auto mb-20">
-          {/* <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
-            What We Offer
-          </h2> */}
-          <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
-            Comprehensive solutions for piping and civil construction, 
-            backed by decades of expertise and cutting-edge technology.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-16 mb-20">
+          {/* Left Column - Build, install, maintain */}
+          <div>
+            <ScrollAnimation animation="fadeInUp">
+              <h2 className="text-5xl lg:text-6xl font-light text-gray-900 mb-8">
+                Build, install, maintain
+              </h2>
+              <p className="text-lg text-gray-700 font-light leading-relaxed mb-8">
+                Build smart, install fast, maintain big and stay in control of your industrial infrastructure with proven expertise.
+              </p>
+            </ScrollAnimation>
+            
+            <div className="space-y-4">
+              <ScrollAnimation animation="fadeInUp" delay={200}>
+                <Link href="/services/piping/installation" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
+                  <span className="font-light">Start building with GRP pipeline installation</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </ScrollAnimation>
+              
+              <ScrollAnimation animation="fadeInUp" delay={300}>
+                <Link href="/services" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
+                  <span className="font-light">Explore services, maintenance, supply and more</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </ScrollAnimation>
+              
+              <ScrollAnimation animation="fadeInUp" delay={400}>
+                <Link href="/projects" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
+                  <span className="font-light">Power your future, build your industrial success</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </ScrollAnimation>
+              
+              <ScrollAnimation animation="fadeInUp" delay={500}>
+                <Link href="/about" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
+                  <span className="font-light">Monitor industrial performance with proven expertise</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </ScrollAnimation>
+            </div>
+          </div>
 
-        {/* Piping Solutions */}
-        <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-10">
-            Piping Solutions
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {pipingServices.map((service, index) => (
-              <ServiceCard key={index} {...service} />
-            ))}
+          {/* Right Column - Why Fibroplast? */}
+          <div>
+            <ScrollAnimation animation="fadeInUp" delay={200}>
+              <h2 className="text-5xl lg:text-6xl font-light text-blue-600 mb-8">
+                Why Fibroplast?
+              </h2>
+              <p className="text-lg text-gray-700 font-light leading-relaxed mb-8">
+                See what the industry analysts have to say and start your hands-on journey.
+              </p>
+            </ScrollAnimation>
+            
+            <div className="space-y-4">
+              <ScrollAnimation animation="fadeInUp" delay={400}>
+                <Link href="/about" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
+                  <span className="font-light">Read why clients named Fibroplast a Leader in Pipeline Solutions</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </ScrollAnimation>
+              
+              <ScrollAnimation animation="fadeInUp" delay={500}>
+                <Link href="/capabilities" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
+                  <span className="font-light">Discover why industry ranked Fibroplast a Leader in Civil Construction</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </ScrollAnimation>
+              
+              <ScrollAnimation animation="fadeInUp" delay={600}>
+                <Link href="/projects" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
+                  <span className="font-light">Get 35+ years of engineering excellence</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </ScrollAnimation>
+              
+              <ScrollAnimation animation="fadeInUp" delay={700}>
+                <Link href="/contact" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
+                  <span className="font-light">See why we top the performance chart in quality understanding</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </ScrollAnimation>
+            </div>
           </div>
         </div>
 
-        {/* Civil Construction */}
-        <div>
-          <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-10">
-            Civil Construction
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {civilServices.map((service, index) => (
-              <ServiceCard key={index} {...service} />
-            ))}
+        {/* Services Grid - Exact IBM Watson Technology Pattern */}
+        <ScrollAnimation animation="fadeInUp" delay={600}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-gray-200">
+            {services.map((service, index) => {
+              const isLastInRow = (index + 1) % 4 === 0;
+              const isLastRow = index >= 4;
+              
+              return (
+                <div 
+                  key={index} 
+                  className={`relative ${
+                    !isLastInRow ? 'border-r border-gray-200' : ''
+                  } ${
+                    !isLastRow ? 'border-b border-gray-200' : ''
+                  }`}
+                >
+                  <ServiceCard {...service} />
+                </div>
+              );
+            })}
           </div>
-        </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

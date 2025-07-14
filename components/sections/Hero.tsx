@@ -7,23 +7,23 @@ export default function Hero() {
       <div className="grid lg:grid-cols-[35%_65%] items-center h-full ">
         {/* Content Side */}
         <div className="space-y-6 md:space-y-8 px-4 sm:px-6 lg:px-8 max-w-3xl lg:ml-auto lg:mr-16 text-center lg:text-left">
-            <div className="space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight text-gray-900">
-                Hattan Modern to
-                <span className="block mt-2 font-normal">Fibroplast</span>
+            <div className="space-y-6 animate-fadeInUp">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight text-gray-900 animate-slideInFromLeft">
+                Engineering Excellence
+                <span className="block mt-2 font-normal animate-slideInFromLeft animation-delay-300">Since 1987</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl font-light">
+              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl font-light animate-slideInFromLeft animation-delay-500">
                 See how Fibroplast has advanced industrial piping and civil construction
               </p>
             </div>
 
-            <div className="pt-8">
+            <div className="pt-8 animate-slideInFromLeft animation-delay-700">
               <Link
                 href="/about"
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded font-medium hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-8 py-3 rounded-sm font-light hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
               >
                 Get Started
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>

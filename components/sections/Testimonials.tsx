@@ -110,14 +110,6 @@ export default function Testimonials() {
   return (
     <section className="section bg-gray-50">
       <div className="container">
-        <div className="text-center max-w-4xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
-            Trusted by Industry Leaders
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
-            Building lasting partnerships through excellence, reliability, and innovation.
-          </p>
-        </div>
 
         {/* Testimonials Carousel */}
         <div className="max-w-5xl mx-auto mb-24">
@@ -189,30 +181,23 @@ export default function Testimonials() {
         </div>
 
         {/* Client Logos */}
-        <div>
-          <h3 className="text-2xl md:text-3xl font-light text-center mb-16 text-gray-900">
-            Our Valued Clients
+        <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-8 items-start">
+          <h3 className="text-xl font-semibold font-light text-gray-900">
+            Trusted clients
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="flex flex-wrap gap-4">
             {clients.map((client, index) => (
               <div
                 key={index}
-                className="group flex items-center justify-center p-8 bg-white border border-gray-200 rounded-sm hover:border-gray-300 hover:shadow-sm transition-all duration-300"
+                className="flex items-center justify-center bg-white border border-gray-200 rounded-sm p-6 hover:border-gray-300 transition-colors duration-300 h-24 min-w-[140px]"
               >
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-gray-50 rounded-sm flex items-center justify-center mb-4 group-hover:bg-white transition-colors p-3">
-                    <Image
-                      src={client.logo}
-                      alt={`${client.name} logo`}
-                      width={80}
-                      height={80}
-                      className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                    />
-                  </div>
-                  <p className="text-sm font-light text-gray-600">
-                    {client.name}
-                  </p>
-                </div>
+                <Image
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  width={120}
+                  height={60}
+                  className="object-contain max-h-16 max-w-full"
+                />
               </div>
             ))}
           </div>
