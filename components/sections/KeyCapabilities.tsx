@@ -155,28 +155,28 @@ export default function KeyCapabilities() {
                       <div className="h-60 bg-gray-100 border border-gray-200 overflow-hidden relative">
                         {index === 0 && (
                           <img 
-                            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            src="/projectimage-2.jpeg" 
                             alt="FPI-certified piping installation teams"
                             className="w-full h-full object-cover"
                           />
                         )}
                         {index === 1 && (
                           <img 
-                            src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            src="/cap-2.jpg" 
                             alt="ISO certified industrial piping quality standards"
                             className="w-full h-full object-cover"
                           />
                         )}
                         {index === 2 && (
                           <img 
-                            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            src="/cap-3.jpg" 
                             alt="24/7 emergency pipeline repair response"
                             className="w-full h-full object-cover"
                           />
                         )}
                         {index === 3 && (
                           <img 
-                            src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            src="/cap-4.png" 
                             alt="Construction equipment rapid mobilization"
                             className="w-full h-full object-cover"
                           />
@@ -190,7 +190,7 @@ export default function KeyCapabilities() {
                         )}
                         {index === 5 && (
                           <img 
-                            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            src="/cap-5.webp" 
                             alt="Regional industrial facilities in Middle East"
                             className="w-full h-full object-cover"
                           />
@@ -203,7 +203,7 @@ export default function KeyCapabilities() {
                   
                   {/* Separator line */}
                   {index < capabilities.length - 1 && (
-                    <div className="mt-12 border-b border-gray-200"></div>
+                    <div className="mt-12"></div>
                   )}
                 </div>
               </ScrollAnimation>

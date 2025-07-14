@@ -14,7 +14,7 @@ const projects = [
     year: "2021-2023",
     scope: "GRP piping + civil infrastructure",
     description: "Comprehensive installation of GRP piping systems and civil infrastructure for one of the Middle East's largest refinery projects.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop&crop=center",
+    image: "/pro-1.webp",
     featured: true
   },
   {
@@ -25,7 +25,7 @@ const projects = [
     year: "2022",
     scope: "Power generation facility piping",
     description: "Critical piping installation and civil works for major power generation facility ensuring zero downtime.",
-    image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&h=400&fit=crop&crop=center"
+    image: "/pro-2.jpg",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const projects = [
     year: "2019",
     scope: "Emergency shutdown services",
     description: "Time-critical shutdown services and maintenance works ensuring operational continuity.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&crop=center"
+    image: "/pro-3.jpg",
   },
   {
     id: 4,
