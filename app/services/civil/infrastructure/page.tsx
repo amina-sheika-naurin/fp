@@ -5,6 +5,15 @@ export default function CivilInfrastructure() {
   return (
     <div className="min-h-screen">
       <section className="relative overflow-hidden bg-gray-50 py-32">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" 
+            alt="Infrastructure development and construction"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white bg-opacity-85"></div>
+        </div>
         <div className="relative container">
           <ScrollAnimation animation="fadeInUp">
             <div className="max-w-5xl mx-auto text-center">

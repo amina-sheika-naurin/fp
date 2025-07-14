@@ -5,6 +5,15 @@ export default function CivilExcavation() {
   return (
     <div className="min-h-screen">
       <section className="relative overflow-hidden bg-gray-50 py-32">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" 
+            alt="Excavation and earthwork construction site"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white bg-opacity-85"></div>
+        </div>
         <div className="relative container">
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8">
