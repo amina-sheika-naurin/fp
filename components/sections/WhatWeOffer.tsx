@@ -169,9 +169,9 @@ export default function WhatWeOffer() {
     <section className="section bg-white">
       <div className="container">
         <div className="text-center max-w-4xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
+          {/* <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
             What We Offer
-          </h2>
+          </h2> */}
           <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
             Comprehensive solutions for piping and civil construction, 
             backed by decades of expertise and cutting-edge technology.

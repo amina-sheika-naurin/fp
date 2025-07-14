@@ -1,3 +1,41 @@
+import { Wrench, Clock, Package } from "lucide-react";
+
+const services = [
+  {
+    icon: Wrench,
+    title: "GRP / GRE / GRVE Pipe Installation",
+    description: "Seamless installation for firewater, cooling, raw-water systems—diameters from 50 mm to 2,800 mm.",
+    features: [
+      "High pressure and raw water pipelines",
+      "Fire water and cooling water circulation",
+      "Diameter range: 50mm - 2800mm",
+      "FPI certified bonders/laminators"
+    ]
+  },
+  {
+    icon: Clock,
+    title: "Shutdown, Maintenance & Emergency Repairs",
+    description: "In-situ lamination, bonding, valve replacement, onsite testing for zero‑downtime performance.",
+    features: [
+      "Emergency response teams",
+      "Time-bounded completion",
+      "Onsite piping repairs and modifications",
+      "100% success rate in executed joints"
+    ]
+  },
+  {
+    icon: Package,
+    title: "Trading & Supply",
+    description: "End-to-end procurement: pipes, fittings, tanks, basins, ladders, manholes, trench covers.",
+    features: [
+      "GRP/GRE/GRVE pipes and fittings",
+      "Tanks, ladders, basins, manholes",
+      "ISO 9001:2008 certified manufacturers",
+      "End-to-end pipeline construction"
+    ]
+  }
+];
+
 export default function PipingServices() {
   return (
     <div className="min-h-screen">
@@ -9,23 +47,70 @@ export default function PipingServices() {
               Piping Solutions
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-4xl mx-auto">
-              GRP/GRE pipe installation, maintenance, and supply solutions.
+              Professional GRP/GRE pipe installation, maintenance, and supply solutions for industrial facilities.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Coming Soon */}
+      {/* Services Grid */}
       <section className="section bg-white">
         <div className="container">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-light mb-4 text-gray-900">
-              Coming Soon
+          <div className="grid lg:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <div key={index} className="bg-gray-50 rounded-sm p-8 border border-gray-200 hover:shadow-sm transition-shadow">
+                  <div className="w-16 h-16 bg-gray-900 rounded-sm flex items-center justify-center mb-6">
+                    <IconComponent className="w-8 h-8 text-white" />
+                  </div>
+                  
+                  <h3 className="text-xl font-normal text-gray-900 mb-4">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 font-light leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+                  
+                  <ul className="space-y-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start gap-2 text-sm text-gray-600 font-light">
+                        <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Capabilities */}
+      <section className="section bg-gray-50">
+        <div className="container">
+          <div className="text-center max-w-4xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-light mb-6 text-gray-900">
+              Our Capabilities
             </h2>
             <p className="text-lg text-gray-600 font-light leading-relaxed">
-              Detailed piping services documentation is under development. 
-              For immediate piping inquiries, please contact us directly.
+              Engineered & constructed kilometres of pipelines across Oman with FPI certified teams.
             </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              "Fully Outsourced Routine Maintenance",
+              "Fully Outsourced Asset Care", 
+              "Emergency Response Teams",
+              "Onsite Piping Repairs & Testing"
+            ].map((capability, index) => (
+              <div key={index} className="bg-white rounded-sm p-6 border border-gray-200 text-center">
+                <p className="text-sm font-light text-gray-700">{capability}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
