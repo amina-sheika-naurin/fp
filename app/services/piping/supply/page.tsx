@@ -1,5 +1,4 @@
 import { CheckCircle, Package, Truck, Award } from "lucide-react";
-import ScrollAnimation from "@/components/utils/ScrollAnimation";
 
 export default function PipingSupply() {
   return (

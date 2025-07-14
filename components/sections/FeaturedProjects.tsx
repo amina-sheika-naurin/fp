@@ -80,7 +80,7 @@ export default function FeaturedProjects() {
 
         <div className="space-y-8">
           {/* Featured Project - Full Width */}
-          {displayedProjects.filter(project => project.featured).map((project, index) => (
+          {displayedProjects.filter(project => project.featured).map((project) => (
             <ScrollAnimation key={project.id} animation="fadeInUp" delay={200}>
               <div className="group relative bg-gray-50 rounded-sm overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 transform hover:-translate-y-1">
                 {/* Project Image */}
