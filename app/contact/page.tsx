@@ -67,13 +67,13 @@ export default function Contact() {
               Ready to discuss your next project? Get in touch with our expert team.
 
               </p>
-              <Link
-                  href="/contact"
+              <button
+                  onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
                   className="inline-flex mt-5 items-center justify-center gap-2 bg-gray-900 text-white px-8 py-3 rounded-sm font-light hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
                 >
                   Get in Touch
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </button>
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function Contact() {
           <div className="grid lg:grid-cols-12 gap-16">
             {/* Contact Form */}
             <div className="lg:col-span-8">
-              <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
+              <div id="contact-form" className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
                 <h3 className="text-3xl font-light mb-2 text-gray-900">Request Consultation</h3>
                 <p className="text-gray-600 mb-8 font-light">Fill out the form below and our team will get back to you within 24 hours.</p>
                 
@@ -201,15 +201,15 @@ export default function Contact() {
                     />
                   </div>
 
-                  <div className="flex items-center gap-4 pt-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-4">
                     <button
                       type="submit"
-                      className="flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 hover:shadow-lg"
+                      className="flex items-center justify-center gap-3 bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 hover:shadow-lg w-full sm:w-auto text-center"
                     >
-                      <Send className="w-5 h-5" />
+                      <Send className="w-4 h-4 sm:w-5 sm:h-5" />
                       Send Inquiry
                     </button>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-gray-500 text-center sm:text-left">
                       We&apos;ll respond within 24 hours
                     </p>
                   </div>

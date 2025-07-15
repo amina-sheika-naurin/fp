@@ -261,7 +261,7 @@ export default function WhatWeOffer() {
               
               <ScrollAnimation animation="fadeInUp" delay={600}>
                 <Link href="/projects" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
-                  <span className="font-light">Get 35+ years of engineering excellence</span>
+                    <span className="font-light">Experience over 35 years of engineering excellence and innovation</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </ScrollAnimation>
