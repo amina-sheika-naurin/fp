@@ -41,14 +41,14 @@ export default function Contact() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&q=80" 
+            src="/site-2.jpg" 
             alt="Large industrial construction project with cranes and building infrastructure"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r  from-white via-white/50 to-white/70 md:from-white md:via-white/90 md:to-white/5"></div>
         </div>
         <div className="relative container">
-          <div className="max-w-xl ">
+          <div className="max-w-md">
             {/* Breadcrumbs */}
             <nav className="flex items-center gap-2 text-sm mb-8">
               <Link href="/" className="text-gray-600 hover:text-gray-900 font-light">
@@ -61,7 +61,7 @@ export default function Contact() {
             {/* Content */}
             <div className="mt-40">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8 ">
-              Contact Us
+              Talk with us
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-4xl mb-8">
               Ready to discuss your next project? Get in touch with our expert team.

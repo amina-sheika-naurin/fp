@@ -40,9 +40,9 @@ export default function About() {
     {
       name: "Abdul Latheef",
       position: "Technical Director",
-      title: "Senior Engineering Specialist | Project Development",
-      description: "Seasoned technical leader with extensive experience in fiberglass engineering and industrial construction. Specializes in pipeline systems design, technical specifications, and quality assurance across major infrastructure projects.",
-      expertise: "Technical engineering, pipeline systems, quality assurance"
+      title: "Pioneer in Composite Piping Industry | 40+ Years Experience",
+      description: "A pioneer in the Middle East's composite piping industry with a career spanning over four decades. Beginning in 1978 at Vera UAE Limited, the region's first GRP manufacturer, he helped shape the industry through Future Pipe Industries until 2007. Co-founded Gulf Pipe Industries and since 2016 has been leading GRP/GRE projects in Oman. His legacy is defined by technical innovation and industry-firsts that helped shape the composite pipe manufacturing sector across the Middle East.",
+      expertise: "GRP/GRE manufacturing, technical innovation, industry development"
     },
     {
       name: "Shiyas Ali",
@@ -91,14 +91,14 @@ export default function About() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&q=80" 
+            src="/site-1.jpg" 
             alt="Large industrial construction project with cranes and building infrastructure"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r  from-white via-white/50 to-white/70 md:from-white md:via-white/90 md:to-white/5"></div>
         </div>
         <div className="relative container">
-          <div className="max-w-xl ">
+          <div className="max-w-md ">
             {/* Breadcrumbs */}
             <nav className="flex items-center gap-2 text-sm mb-8">
               <Link href="/" className="text-gray-600 hover:text-gray-900 font-light">

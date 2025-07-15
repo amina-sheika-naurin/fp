@@ -10,14 +10,14 @@ export default function Capabilities() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&q=80" 
+            src="/grp-2.webp" 
             alt="Large industrial construction project with cranes and building infrastructure"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r  from-white via-white/50 to-white/70 md:from-white md:via-white/90 md:to-white/5"></div>
         </div>
         <div className="relative container">
-          <div className="max-w-xl ">
+          <div className="max-w-md ">
             {/* Breadcrumbs */}
             <nav className="flex items-center gap-2 text-sm mb-8">
               <Link href="/" className="text-gray-600 hover:text-gray-900 font-light">
