@@ -221,42 +221,14 @@ export default function WhatWeOffer() {
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
           {/* Left Column - Build, install, maintain */}
           <div>
-            <ScrollAnimation animation="fadeInUp">
-              <h2 className="text-5xl lg:text-6xl font-light text-gray-900 mb-8">
-                Build, install, maintain
-              </h2>
-              <p className="text-lg text-gray-700 font-light leading-relaxed mb-8">
-                Build smart, install fast, maintain big and stay in control of your industrial infrastructure with proven expertise.
-              </p>
-            </ScrollAnimation>
-            
-            <div className="space-y-4">
-              <ScrollAnimation animation="fadeInUp" delay={200}>
-                <Link href="/services/piping/installation" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
-                  <span className="font-light">Start building with GRP pipeline installation</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </ScrollAnimation>
-              
-              <ScrollAnimation animation="fadeInUp" delay={300}>
-                <Link href="/services" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
-                  <span className="font-light">Explore services, maintenance, supply and more</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </ScrollAnimation>
-              
-              <ScrollAnimation animation="fadeInUp" delay={400}>
-                <Link href="/projects" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
-                  <span className="font-light">Power your future, build your industrial success</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </ScrollAnimation>
-              
-              <ScrollAnimation animation="fadeInUp" delay={500}>
-                <Link href="/about" className="flex items-center gap-3 text-blue-600 hover:gap-4 transition-all">
-                  <span className="font-light">Monitor industrial performance with proven expertise</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+            <div className="lg:sticky lg:top-32">
+              <ScrollAnimation animation="fadeInUp">
+                <h2 className="text-5xl lg:text-6xl font-light text-gray-900 mb-8">
+                  Build, install, maintain
+                </h2>
+                <p className="text-lg text-gray-700 font-light leading-relaxed mb-8">
+                  Build smart, install fast, maintain big and stay in control of your industrial infrastructure with proven expertise.
+                </p>
               </ScrollAnimation>
             </div>
           </div>
