@@ -3,16 +3,16 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen bg-gray-50 overflow-hidden">
-      <div className="grid lg:grid-cols-[35%_65%] items-center h-full ">
+    <section className="relative min-h-screen bg-gray-50 overflow-hidden">
+      <div className="relative grid lg:grid-cols-[35%_65%] items-center min-h-screen">
         {/* Content Side */}
-        <div className="space-y-6 md:space-y-8 px-4 sm:px-6 lg:px-8 max-w-3xl lg:ml-auto lg:mr-16 text-center lg:text-left">
+        <div className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 lg:py-0 max-w-3xl mx-auto lg:ml-auto lg:mr-16 text-center lg:text-left">
             <div className="space-y-6 animate-fadeInUp">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight text-gray-900 animate-slideInFromLeft">
                 Engineering Excellence
                 <span className="block mt-2 font-normal animate-slideInFromLeft animation-delay-300">Since 1987</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl font-light animate-slideInFromLeft animation-delay-500">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl font-light animate-slideInFromLeft animation-delay-500 mx-auto lg:mx-0">
                 See how Fibroplast has advanced industrial piping and civil construction
               </p>
             </div>
@@ -20,7 +20,7 @@ export default function Hero() {
             <div className="pt-8 animate-slideInFromLeft animation-delay-700">
               <Link
                 href="/about"
-                className="inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-8 py-3 rounded-sm font-light hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                className="inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-6 sm:px-8 py-3 rounded-sm font-light hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg group text-base sm:text-lg"
               >
                 Get Started
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -28,8 +28,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* IBM Watson Exact Timeline Recreation */}
-          <div className="relative flex items-center justify-center h-full pl-16">
+          {/* IBM Watson Timeline - Visible on all devices */}
+          <div className="absolute inset-0 lg:relative flex items-center justify-center h-full pl-0 lg:pl-16 opacity-20 lg:opacity-100">
             <div className="relative w-full h-full">
               
               {/* Exact IBM Watson SVG Timeline */}
