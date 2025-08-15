@@ -34,22 +34,22 @@ export default function Footer() {
             <h4 className="text-base font-normal text-white">Services</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/services/piping" className="text-sm font-light hover:text-white transition-colors">
+                <Link href="/services" className="text-sm font-light hover:text-white transition-colors">
                   Piping Solutions
                 </Link>
               </li>
               <li>
-                <Link href="/services/civil" className="text-sm font-light hover:text-white transition-colors">
+                <Link href="/services" className="text-sm font-light hover:text-white transition-colors">
                   Civil Construction
                 </Link>
               </li>
               <li>
-                <Link href="/services/piping/maintenance" className="text-sm font-light hover:text-white transition-colors">
+                <Link href="/services" className="text-sm font-light hover:text-white transition-colors">
                   Maintenance & Repairs
                 </Link>
               </li>
               <li>
-                <Link href="/services/piping/supply" className="text-sm font-light hover:text-white transition-colors">
+                <Link href="/services" className="text-sm font-light hover:text-white transition-colors">
                   Trading & Supply
                 </Link>
               </li>

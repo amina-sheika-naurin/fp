@@ -90,8 +90,8 @@ export default function FeaturedProjects() {
                     alt={project.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    width={100}
-                    height={100}
+                    // width={100}
+                    // height={100}
                   />
                   <div className="absolute inset-0 bg-black/20" />
                   <div className="absolute top-6 left-6 bg-white text-gray-900 px-4 py-2 rounded-sm text-sm font-light">
@@ -143,8 +143,8 @@ export default function FeaturedProjects() {
                       src={project.image}
                       alt={project.title}
                       fill
-                      width={100}
-                      height={100}
+                      // width={100}
+                      // height={100}
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-black/20" />
