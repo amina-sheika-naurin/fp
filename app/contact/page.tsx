@@ -6,33 +6,71 @@ import {
   Phone, 
   Send,
   ChevronRight,
-  ArrowRight
+  ArrowRight,
+  CheckCircle,
+  AlertCircle
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: ""
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    alert("Thank you for your inquiry! We'll get back to you soon.");
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+  
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
+  
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+  
+    try {
+      const response = await fetch('https://fibroplast-contact-form-11163833577.us-central1.run.app/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          company: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+        console.error('Error:', result.error);
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      console.error('Network error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  
 
   return (
     <div className="min-h-screen">
@@ -40,8 +78,10 @@ export default function Contact() {
       <section className="relative overflow-hidden bg-gray-50 py-10 min-h-screen">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
+          <Image
             src="/site-2.jpg" 
+            height={100}
+            width={100}
             alt="Large industrial construction project with cranes and building infrastructure"
             className="w-full h-full object-cover"
           />
@@ -96,171 +136,213 @@ export default function Contact() {
 
       {/* Contact Form & Info */}
       <section className="py-24 bg-gray-50">
-        <div className="container">
-          <div className="grid lg:grid-cols-12 gap-16">
-            {/* Contact Form */}
-            <div className="lg:col-span-8">
-              <div id="contact-form" className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
-                <h3 className="text-3xl font-light mb-2 text-gray-900">Request Consultation</h3>
-                <p className="text-gray-600 mb-8 font-light">Fill out the form below and our team will get back to you within 24 hours.</p>
-                
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-light transition-colors"
-                        placeholder="Enter your full name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
-                        Company
-                      </label>
-                      <input
-                        type="text"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-light transition-colors"
-                        placeholder="Your company name"
-                      />
-                    </div>
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-12 gap-16">
+          {/* Contact Form */}
+          <div className="lg:col-span-8">
+            <div id="contact-form" className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
+              <h3 className="text-3xl font-light mb-2 text-gray-900">Request Consultation</h3>
+              <p className="text-gray-600 mb-8 font-light">Fill out the form below and our team will get back to you within 24 hours.</p>
+              
+              {/* Success Message */}
+              {submitStatus === 'success' && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <div>
+                    <p className="text-green-800 font-medium">Message sent successfully!</p>
+                    <p className="text-green-700 text-sm">We&rsquo;ll get back to you within 24 hours.</p>
                   </div>
+                </div>
+              )}
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-light transition-colors"
-                        placeholder="your.email@company.com"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-light transition-colors"
-                        placeholder="+968 XXXX XXXX"
-                      />
-                    </div>
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3">
+                  <AlertCircle className="w-5 h-5 text-red-600" />
+                  <div>
+                    <p className="text-red-800 font-medium">Failed to send message</p>
+                    <p className="text-red-700 text-sm">Please try again or contact us directly.</p>
                   </div>
-
+                </div>
+              )}
+              
+              <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-900 mb-2">
-                      Service Interest
+                      Full Name *
                     </label>
-                    <select
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-light transition-colors"
-                    >
-                      <option value="">Select a service</option>
-                      <option value="grp-installation">GRP/GRE Pipeline Installation</option>
-                      <option value="maintenance">Maintenance & Emergency Repairs</option>
-                      <option value="civil-construction">Civil Construction</option>
-                      <option value="emergency-services">24/7 Emergency Services</option>
-                      <option value="trading-supply">Trading & Supply Solutions</option>
-                      <option value="consultation">Technical Consultation</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">
-                      Project Details *
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
                       onChange={handleChange}
                       required
-                      rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-light transition-colors resize-none"
-                      placeholder="Please describe your project requirements, timeline, location, and any specific technical needs..."
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-light transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed"
+                      placeholder="Enter your full name"
                     />
                   </div>
-
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-4">
-                    <button
-                      type="submit"
-                      className="flex items-center justify-center gap-3 bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 hover:shadow-lg w-full sm:w-auto text-center"
-                    >
-                      <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-                      Send Inquiry
-                    </button>
-                    <p className="text-sm text-gray-500 text-center sm:text-left">
-                      We&apos;ll respond within 24 hours
-                    </p>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Company
+                    </label>
+                    <input
+                      type="text"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-light transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed"
+                      placeholder="Your company name"
+                    />
                   </div>
-                </form>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-light transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed"
+                      placeholder="your.email@company.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-light transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed"
+                      placeholder="+968 XXXX XXXX"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                    Service Interest
+                  </label>
+                  <select
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-light transition-colors disabled:bg-gray-50 disabled:cursor-not-allowed"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="grp-installation">GRP/GRE Pipeline Installation</option>
+                    <option value="maintenance">Maintenance & Emergency Repairs</option>
+                    <option value="civil-construction">Civil Construction</option>
+                    <option value="emergency-services">24/7 Emergency Services</option>
+                    <option value="trading-supply">Trading & Supply Solutions</option>
+                    <option value="consultation">Technical Consultation</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
+                    Project Details *
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    disabled={isSubmitting}
+                    rows={6}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-light transition-colors resize-none disabled:bg-gray-50 disabled:cursor-not-allowed"
+                    placeholder="Please describe your project requirements, timeline, location, and any specific technical needs..."
+                  />
+                </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-4">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>);
+                    }}
+                    disabled={isSubmitting}
+                    className="flex items-center justify-center gap-3 bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 hover:shadow-lg w-full sm:w-auto text-center disabled:bg-gray-400 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+                        Send Inquiry
+                      </>
+                    )}
+                  </button>
+                  {!isSubmitting && (
+                    <p className="text-sm text-gray-500 text-center sm:text-left">
+                      We&rsquo;ll respond within 24 hours
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
+          </div>
 
-            {/* Quick Contact Info */}
-            <div className="lg:col-span-4">
-              <div className="sticky top-32">
-                <h3 className="text-2xl font-light mb-8 text-gray-900">Contact Information</h3>
-                <div className="space-y-8">
-                  <div>
-                    <h4 className="text-lg font-medium text-gray-900 mb-4">Emergency Support</h4>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <Phone className="w-5 h-5 text-blue-600" />
-                        <span className="text-gray-600 font-light">+968 9432 1521</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <Phone className="w-5 h-5 text-blue-600" />
-                        <span className="text-gray-600 font-light">+971 5051 40987</span>
-                      </div>
+          {/* Quick Contact Info */}
+          <div className="lg:col-span-4">
+            <div className="sticky top-32">
+              <h3 className="text-2xl font-light mb-8 text-gray-900">Contact Information</h3>
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-lg font-medium text-gray-900 mb-4">Emergency Support</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <Phone className="w-5 h-5 text-blue-600" />
+                      <span className="text-gray-600 font-light">+968 9432 1521</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Phone className="w-5 h-5 text-blue-600" />
+                      <span className="text-gray-600 font-light">+971 5599 88327</span>
                     </div>
                   </div>
+                </div>
 
-                  <div>
-                    <h4 className="text-lg font-medium text-gray-900 mb-4">General Inquiries</h4>
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <Mail className="w-5 h-5 text-blue-600" />
-                        <span className="text-gray-600 font-light">alatheef@aget.me</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <Mail className="w-5 h-5 text-blue-600" />
-                        <span className="text-gray-600 font-light">zubair@aget.me</span>
-                      </div>
+                <div>
+                  <h4 className="text-lg font-medium text-gray-900 mb-4">General Inquiries</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <Mail className="w-5 h-5 text-blue-600" />
+                      <span className="text-gray-600 font-light">alatheef@fibroplastllc.com</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Mail className="w-5 h-5 text-blue-600" />
+                      <span className="text-gray-600 font-light">connect@fibroplastllc.com</span>
                     </div>
                   </div>
+                </div>
 
-                  <div>
-                    <h4 className="text-lg font-medium text-gray-900 mb-4">Office Locations</h4>
-                    <div className="space-y-4">
-                      <div>
-                        <p className="text-sm font-medium text-gray-900 mb-1">Sohar Office</p>
-                        <p className="text-sm text-gray-600 font-light">P.O.BOX: 6, P.C:322, Sohar, Sultanate of Oman</p>
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-gray-900 mb-1">Duqm Office</p>
-                        <p className="text-sm text-gray-600 font-light">Duqm, Sultanate of Oman</p>
-                      </div>
+                <div>
+                  <h4 className="text-lg font-medium text-gray-900 mb-4">Office Locations</h4>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-sm font-medium text-gray-900 mb-1">Sohar Office</p>
+                      <p className="text-sm text-gray-600 font-light">P.O.BOX: 6, P.C:322, Sohar, Sultanate of Oman</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900 mb-1">Dubai Office</p>
+                      <p className="text-sm text-gray-600 font-light">Ibn Battuta Gate, Garden Square, Jebel Ali 1, <br /> Dubai, United Arab Emirates</p>
                     </div>
                   </div>
                 </div>
@@ -268,7 +350,8 @@ export default function Contact() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Call to Action */}
       <section className="py-24 bg-white">

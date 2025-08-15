@@ -2,6 +2,7 @@
 import { ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 
 export default function About() {
   const [activeYear, setActiveYear] = useState(0);
@@ -90,7 +91,7 @@ export default function About() {
       <section className="relative overflow-hidden bg-gray-50 py-10 min-h-screen">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
+          <Image
             src="/site-1.jpg" 
             alt="Large industrial construction project with cranes and building infrastructure"
             className="w-full h-full object-cover"
@@ -269,7 +270,7 @@ export default function About() {
                     <div className="grid md:grid-cols-12 gap-8">
                       <div className="md:col-span-3">
                         <div className="w-full h-full rounded-sm overflow-hidden mb-4">
-                          <img 
+                          <Image
                             src={`/${leader.name}.${
                               leader.name === 'Shiyas Ali' ? 'png' : 
                               leader.name === 'Abdul Latheef' ? 'jpg' : 'jpeg'

@@ -18,29 +18,28 @@ export default function ScrollAnimation({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const element = ref.current; // ✅ Store a stable reference
+  
+    if (!element) return;
+  
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && ref.current) {
+        if (entry.isIntersecting) {
           setTimeout(() => {
-            if (ref.current) {
-              ref.current.classList.add(`animate-${animation}`);
-            }
+            element.classList.add(`animate-${animation}`);
           }, delay);
         }
       },
       { threshold }
     );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
+  
+    observer.observe(element);
+  
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      observer.unobserve(element); // ✅ Use stored element
     };
   }, [animation, delay, threshold]);
+  
 
   return (
     <div ref={ref} className="opacity-0 ">

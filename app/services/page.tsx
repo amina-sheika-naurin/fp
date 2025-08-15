@@ -1,5 +1,6 @@
 import { CheckCircle2, Wrench, Shield, Package, Clock, Users, Award, Target, Layers, ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ServicesPage() {
   return (
@@ -7,7 +8,7 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gray-50 py-10 min-h-screen">
         <div className="absolute inset-0">
-          <img 
+          <Image
             src="/grp.jpg" 
             alt="Industrial construction project"
             className="w-full h-full object-cover"

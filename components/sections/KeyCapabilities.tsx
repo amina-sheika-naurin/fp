@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { 
   Award, 
@@ -16,8 +17,10 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
+    const element = ref.current; // ✅ Store current value
+    if (!element) return;
+  
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !isVisible) {
@@ -26,17 +29,14 @@ const AnimatedCounter = ({ value, suffix = "" }: { value: number; suffix?: strin
       },
       { threshold: 0.1 }
     );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
+  
+    observer.observe(element);
+  
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      observer.unobserve(element); // ✅ Use stored element instead of ref.current
     };
   }, [isVisible]);
+  
 
   useEffect(() => {
     if (!isVisible) return;
@@ -154,42 +154,54 @@ export default function KeyCapabilities() {
                     <div className={`${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                       <div className="h-60 bg-gray-100 border border-gray-200 overflow-hidden relative">
                         {index === 0 && (
-                          <img 
+                          <Image 
+                            width={100}
+                            height={100}
                             src="/projectimage-2.jpeg" 
                             alt="FPI-certified piping installation teams"
                             className="w-full h-full object-cover"
                           />
                         )}
                         {index === 1 && (
-                          <img 
+                          <Image 
+                            height={100}
+                            width={100}
                             src="/cap-2.jpg" 
                             alt="ISO certified industrial piping quality standards"
                             className="w-full h-full object-cover"
                           />
                         )}
                         {index === 2 && (
-                          <img 
+                          <Image 
+                          height={100}
+                          width={100}
                             src="/cap-3.jpg" 
                             alt="24/7 emergency pipeline repair response"
                             className="w-full h-full object-cover"
                           />
                         )}
                         {index === 3 && (
-                          <img 
+                          <Image 
+                          height={100}
+                          width={100}
                             src="/cap-4.png" 
                             alt="Construction equipment rapid mobilization"
                             className="w-full h-full object-cover"
                           />
                         )}
                         {index === 4 && (
-                          <img 
+                          <Image 
+                            height={100}
+                            width={100}
                             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                             alt="Integrated piping and civil construction teams"
                             className="w-full h-full object-cover"
                           />
                         )}
                         {index === 5 && (
-                          <img 
+                          <Image 
+                            height={100}
+                            width={100}
                             src="/cap-5.webp" 
                             alt="Regional industrial facilities in Middle East"
                             className="w-full h-full object-cover"

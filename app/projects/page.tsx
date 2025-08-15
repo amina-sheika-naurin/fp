@@ -1,5 +1,6 @@
 import { Calendar, MapPin, Building, ChevronRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const projects = [
   {
@@ -97,7 +98,8 @@ export default function Projects() {
       <section className="relative overflow-hidden bg-gray-50 py-10 min-h-screen">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
+          <Image
+            width={100}
             src="/grp.jpg" 
             alt="Large industrial construction project with cranes and building infrastructure"
             className="w-full h-full object-cover"
@@ -187,7 +189,7 @@ export default function Projects() {
 
                 {/* Project Visual */}
                 <div className={`relative h-96 overflow-hidden rounded-sm ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                  <img 
+                  <Image
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover"

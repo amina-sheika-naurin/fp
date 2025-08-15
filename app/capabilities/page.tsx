@@ -1,6 +1,6 @@
 import { ChevronRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
-
+import Image from "next/image";
 
 export default function Capabilities() {
   return (
@@ -9,7 +9,7 @@ export default function Capabilities() {
       <section className="relative overflow-hidden bg-gray-50 py-10 min-h-screen">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img 
+          <Image
             src="/grp-2.webp" 
             alt="Large industrial construction project with cranes and building infrastructure"
             className="w-full h-full object-cover"
