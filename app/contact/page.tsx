@@ -308,14 +308,24 @@ export default function Contact() {
                 <div>
                   <h4 className="text-lg font-medium text-gray-900 mb-4">Emergency Support</h4>
                   <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <Phone className="w-5 h-5 text-blue-600" />
-                      <span className="text-gray-600 font-light">+968 9432 1521</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Phone className="w-5 h-5 text-blue-600" />
-                      <span className="text-gray-600 font-light">+971 5599 88327</span>
-                    </div>
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-5 h-5 text-blue-600" />
+                    <a
+                      href="tel:+96894321521"
+                      className="text-gray-600 font-light hover:text-blue-600 transition"
+                    >
+                      +968 9432 1521
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-5 h-5 text-blue-600" />
+                    <a
+                      href="tel:+971559988327"
+                      className="text-gray-600 font-light hover:text-blue-600 transition"
+                    >
+                      +971 5599 88327
+                    </a>
+                  </div>
                   </div>
                 </div>
 

@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <Image 
-                src="/logo.svg" 
+                src="/logo-white.svg" 
                 alt="FP Logo" 
                 width={60} 
                 height={60} 
@@ -91,19 +91,19 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-1 text-gray-500" />
                 <div>
                   <p className="text-sm font-light text-white">Offices</p>
-                  <p className="text-sm font-light">Sohar • Duqm • Dubai</p>
+                  <p className="text-sm font-light">Sohar • Dubai</p>
                 </div>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 flex-shrink-0 text-gray-500" />
-                <a href="tel:+96812345678" className="text-sm font-light hover:text-white transition-colors">
-                  +968 1234 5678
+                <a href="tel:+96894534551" className="text-sm font-light hover:text-white transition-colors">
+                  +968 9453 4551
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 flex-shrink-0 text-gray-500" />
-                <a href="mailto:info@fibroplast.com" className="text-sm font-light hover:text-white transition-colors">
-                  info@fibroplast.com
+                <a href="mailto:connect@fibroplastllc.com" className="text-sm font-light hover:text-white transition-colors">
+                  connect@fibroplastllc.com
                 </a>
               </li>
             </ul>

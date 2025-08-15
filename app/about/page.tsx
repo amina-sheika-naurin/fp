@@ -92,6 +92,8 @@ export default function About() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
+            width={100}
+            height={100}
             src="/site-1.jpg" 
             alt="Large industrial construction project with cranes and building infrastructure"
             className="w-full h-full object-cover"
@@ -277,6 +279,8 @@ export default function About() {
                             }`}
                             alt={leader.name}
                             className="w-full h-full object-cover"
+                            width={100}
+                            height={100}
                           />
                         </div>
                       </div>

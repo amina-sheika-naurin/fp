@@ -12,6 +12,8 @@ export default function ServicesPage() {
             src="/grp.jpg" 
             alt="Industrial construction project"
             className="w-full h-full object-cover"
+            width={100}
+            height={100}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-white/70 md:from-white md:via-white/90 md:to-white/5"></div>
         </div>

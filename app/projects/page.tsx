@@ -100,6 +100,7 @@ export default function Projects() {
         <div className="absolute inset-0">
           <Image
             width={100}
+            height={100}
             src="/grp.jpg" 
             alt="Large industrial construction project with cranes and building infrastructure"
             className="w-full h-full object-cover"
@@ -193,6 +194,8 @@ export default function Projects() {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover"
+                    width={100}
+                    height={100}
                   />
                   <div className="absolute inset-0 bg-black/20"></div>
                   
