@@ -4,6 +4,24 @@ import Image from "next/image";
 
 const projects = [
   {
+    title: "Jindal Desalination Plant - RO System",
+    client: "Jindal Shadeed Iron & Steel LLC",
+    location: "Sohar Port, Oman",
+    year: "2025",
+    scope: "2x300 m³/hr RO Desalination Plant - Complete GRP Pipeline Installation",
+    description: "Major desalination infrastructure project featuring comprehensive GRP pipeline installation for a dual-capacity reverse osmosis plant. The project encompasses complex multi-level piping systems with large-diameter pipes, precision support structures, and complete integration with the RO facility at Sohar Port.",
+    image: "/jindal-ro-plant-1.jpg",
+    highlights: [
+      "2x300 m³/hr capacity reverse osmosis plant",
+      "Large-diameter GRP pipeline network installation",
+      "Multi-level piping system with structural steel supports",
+      "Underground and overhead pipeline configuration",
+      "Complete pipe support and bracing systems",
+      "Integration with desalination equipment",
+      "Precision alignment and testing procedures"
+    ]
+  },
+  {
     title: "DUQM Refinery EPC1 & EPC2",
     client: "Samsung/Petrofac & TRD",
     location: "Duqm Special Economic Zone, Oman",

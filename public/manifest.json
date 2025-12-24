@@ -1,0 +1,16 @@
+{
+  "name": "Fibroplast LLC - Industrial Piping & Civil Construction",
+  "short_name": "Fibroplast",
+  "description": "Delivering advanced GRP/GRE piping and civil infrastructure solutions for oil, gas, utilities, and industrial facilities.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

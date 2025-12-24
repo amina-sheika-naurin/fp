@@ -8,6 +8,17 @@ import ScrollAnimation from "@/components/utils/ScrollAnimation";
 const projects = [
   {
     id: 1,
+    title: "Jindal Desalination Plant - RO System",
+    client: "Jindal Shadeed Iron & Steel LLC",
+    location: "Sohar Port, Oman",
+    year: "2025",
+    scope: "2x300 m³/hr RO Desalination Plant - Complete GRP Pipeline Installation",
+    description: "Latest major desalination infrastructure project featuring comprehensive GRP pipeline installation for a dual-capacity reverse osmosis plant with complex multi-level piping systems and precision support structures.",
+    image: "/jindal-ro-plant-2.jpg",
+    featured: true
+  },
+  {
+    id: 2,
     title: "DUQM Refinery EPC1 & EPC2",
     client: "Duqm Refinery",
     location: "Duqm, Oman",
@@ -15,10 +26,10 @@ const projects = [
     scope: "GRP piping + civil infrastructure",
     description: "Comprehensive installation of GRP piping systems and civil infrastructure for one of the Middle East's largest refinery projects.",
     image: "/pro-1.webp",
-    featured: true
+    featured: false
   },
   {
-    id: 2,
+    id: 3,
     title: "Sohar 2 IPP Project",
     client: "Sohar Power Company",
     location: "Sohar, Oman",
@@ -28,7 +39,7 @@ const projects = [
     image: "/pro-2.jpg",
   },
   {
-    id: 3,
+    id: 4,
     title: "Majis Sohar Shutdown",
     client: "Majis Industrial Services",
     location: "Sohar, Oman",
@@ -38,7 +49,7 @@ const projects = [
     image: "/pro-3.jpg",
   },
   {
-    id: 4,
+    id: 5,
     title: "Oman Oil Duqm Bunker",
     client: "Oman Oil Company",
     location: "Duqm, Oman",
@@ -48,7 +59,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop&crop=center"
   },
   {
-    id: 5,
+    id: 6,
     title: "LIWA Plastics, Sohar",
     client: "LIWA Plastics",
     location: "Sohar, Oman",
